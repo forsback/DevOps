@@ -8,17 +8,16 @@ parameters:
   - prod
   
 variables:
-- template: template-variables.yml
-  parameters: 
+- template: template-variables.yml # Simple notation in template variable file.
     env:  ${{parameters.env}} 
-- group: group-test             # variable group requires name/value notation. Used for testing only. Simple notation in template variable file.
+- group: group-test             # variable group requires name/value notation. Used for testing in this context.
 
 pool:
   vmImage: ubuntu-latest
 
 steps:
 - task: Bash@3
-  displayName: Download yq
+  displayName: Download yq for YAML to JSON conversion
   inputs:
     targetType: 'inline'
     script: |

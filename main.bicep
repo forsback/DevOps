@@ -6,6 +6,7 @@ param subnetArray array = landingZone.subnets
 param vnetPrefixes array = landingZone.vnet.addressPrefixes
 param vnetName string = landingZone.vnet.name
 
+// Used network module from https://github.com/Azure/ResourceModules
 module vnet 'virtualNetworks/deploy.bicep' = {
   name: vnetName
   params: {
